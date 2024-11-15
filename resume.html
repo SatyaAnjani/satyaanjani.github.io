@@ -47,10 +47,11 @@
                                 <h2 class="text-primary fw-bolder mb-0">Experience</h2>
                                 <!-- Download resume button-->
                                 <!-- Note: Set the link href target to a PDF file within your project-->
-                                <button type="button" class="btn btn-primary px-4 py-3">
-                                    <img src="/assets/download.svg" alt="download-icon" width="24" height="24">
+                                <a class="btn btn-primary px-4 py-3" href="#!"
+                                   onclick="window.triggerFileDownload('Resume.pdf', 'assets/resume.pdf')">
+                                    <div class="d-inline-block bi bi-download me-2"></div>
                                     Download Resume
-                                </button>
+                                </a>
                             </div>
                             <!-- Experience Card 1-->
                             <div class="card shadow border-0 rounded-4 mb-5">
@@ -254,20 +255,13 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
-            // Function to trigger file download
             window.triggerFileDownload = (fileName, url) => {
                 const anchorElement = document.createElement('a');
                 anchorElement.href = url;
-                anchorElement.download = fileName ?? ''; // Default to an empty name if not provided
+                anchorElement.download = fileName ?? '';
                 anchorElement.click();
                 anchorElement.remove();
-            };
-
-            // Attach event listener to button
-            document.querySelector('button.btn-primary').addEventListener('click', () => {
-                window.triggerFileDownload('resume.pdf', '/assets/resume.pdf');
-            });
+            }
         </script>
-      
     </body>
 </html>
